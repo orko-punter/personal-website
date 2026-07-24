@@ -35,3 +35,80 @@ body {
   background: var(--accent);
   color: var(--background);
 }
+
+.post-content p {
+  margin-top: 1.25em;
+}
+
+.post-content p:first-child {
+  margin-top: 0;
+}
+
+.post-content h3,
+.post-content h4 {
+  margin-top: 2em;
+  margin-bottom: 0.5em;
+  font-weight: 600;
+  color: var(--foreground);
+}
+
+.post-content h3 {
+  font-size: 1.25rem;
+}
+
+.post-content h4 {
+  font-size: 1.1rem;
+}
+
+.post-content a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.post-content strong {
+  color: var(--foreground);
+  font-weight: 600;
+}
+
+.post-content ul,
+.post-content ol {
+  margin-top: 1.25em;
+  padding-left: 1.4em;
+}
+
+.post-content ul {
+  list-style: disc;
+}
+
+.post-content ol {
+  list-style: decimal;
+}
+
+.post-content li + li {
+  margin-top: 0.4em;
+}
+
+.post-content blockquote {
+  margin: 1.5em 0;
+  padding-left: 1em;
+  border-left: 2px solid var(--accent);
+  color: var(--muted);
+  font-style: italic;
+}
+
+.post-content figure {
+  margin: 1.75em 0;
+}
+
+.post-content img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 0.5rem;
+  display: block;
+}
+
+.post-content hr {
+  margin: 2em 0;
+  border-color: var(--border);
+}

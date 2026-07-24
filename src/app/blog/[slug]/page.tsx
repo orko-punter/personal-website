@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, ArrowUpRight } from "lucide-react";
 import { writing } from "@/data/writing";
 
 export function generateStaticParams() {
@@ -27,8 +27,6 @@ export default async function BlogPostPage({
 
   if (!piece) notFound();
 
-  const paragraphs = piece.content.split("\n\n").filter(Boolean);
-
   return (
     <article className="mx-auto max-w-2xl px-6 py-16">
       <Link
@@ -40,15 +38,27 @@ export default async function BlogPostPage({
       </Link>
 
       <h1 className="mt-6 text-3xl font-semibold text-foreground">{piece.title}</h1>
-      <p className="mt-2 text-xs font-mono text-muted">
-        {piece.date} · {piece.readTime}
-      </p>
-
-      <div className="mt-8 space-y-4 leading-relaxed text-foreground/90">
-        {paragraphs.map((paragraph, i) => (
-          <p key={i}>{paragraph}</p>
-        ))}
+      <div className="mt-2 flex flex-wrap items-center gap-x-3 gap-y-1 text-xs font-mono text-muted">
+        <span>
+          {piece.date} · {piece.readTime}
+        </span>
+        {piece.mediumUrl && (
+          <a
+            href={piece.mediumUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1 text-accent hover:underline"
+          >
+            Read on Medium
+            <ArrowUpRight size={12} />
+          </a>
+        )}
       </div>
+
+      <div
+        className="post-content mt-8 leading-relaxed text-foreground/90"
+        dangerouslySetInnerHTML={{ __html: piece.contentHtml }}
+      />
     </article>
   );
 }
