@@ -9,6 +9,8 @@ export const profile = {
 
 export const socials = [
   { label: "Email", href: "mailto:rraa11296@gmail.com", icon: "mail" },
+  { label: "LBS Email", href: "mailto:aanand.mba2028@london.edu", icon: "mail" },
+  { label: "Phone", href: "tel:+447417353138", icon: "phone" },
   { label: "LinkedIn", href: "https://www.linkedin.com/in/rraa11296/", icon: "linkedin" },
   { label: "Medium", href: "https://medium.com/@rraa11296", icon: "medium" },
 ] as const;

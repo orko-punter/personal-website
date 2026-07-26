@@ -1,10 +1,11 @@
-import { Mail } from "lucide-react";
+import { Mail, Phone } from "lucide-react";
 import { GithubIcon, LinkedinIcon, MediumIcon, TwitterIcon } from "@/components/icons";
 import { profile, socials } from "@/data/profile";
 import { Reveal } from "@/components/Reveal";
 
 const icons = {
   mail: Mail,
+  phone: Phone,
   github: GithubIcon,
   linkedin: LinkedinIcon,
   twitter: TwitterIcon,
@@ -26,7 +27,11 @@ export function Contact() {
               <a
                 key={social.label}
                 href={social.href}
-                target={social.href.startsWith("mailto:") ? undefined : "_blank"}
+                target={
+                  social.href.startsWith("mailto:") || social.href.startsWith("tel:")
+                    ? undefined
+                    : "_blank"
+                }
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 rounded-full border border-border px-4 py-2 text-sm text-muted hover:text-accent hover:border-accent/50 transition-colors"
               >
