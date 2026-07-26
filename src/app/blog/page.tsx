@@ -28,7 +28,17 @@ export default function BlogPage() {
                   {piece.date} · {piece.readTime}
                 </span>
               </div>
-              <p className="mt-1.5 text-sm text-muted">{piece.excerpt}</p>
+              <div className="mt-2 flex flex-wrap gap-1.5">
+                {piece.tags.map((tag) => (
+                  <span
+                    key={tag}
+                    className="rounded-full border border-border px-2 py-0.5 text-[11px] text-muted"
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
+              <p className="mt-2 text-sm text-muted">{piece.excerpt}</p>
             </Link>
           </Reveal>
         ))}

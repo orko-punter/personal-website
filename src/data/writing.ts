@@ -1,5 +1,6 @@
 export type WritingPiece = {
   slug: string;
+  tags: string[];
   title: string;
   date: string; // ISO date
   excerpt: string;
@@ -14,6 +15,7 @@ export type WritingPiece = {
 export const writing: WritingPiece[] = [
   {
     slug: 'welcome-to-london',
+    tags: ['Travel', 'Food', 'London', 'Nightlife'],
     title: 'Welcome to London',
     date: '2026-07-20',
     excerpt: '“Cold when it’s critical Cool but cynical Maxed out, never minimal That’s how we function Welcome to London” — Charlie Sparks',
@@ -23,6 +25,7 @@ export const writing: WritingPiece[] = [
   },
   {
     slug: 'pranay-s-wedding-toast',
+    tags: ['Wedding Toast', 'Friendship', 'Humor'],
     title: 'Pranay\'s Wedding Toast',
     date: '2026-06-27',
     excerpt: 'I just realized, I never published Pranays wedding toast here! So here it is…',
@@ -32,6 +35,7 @@ export const writing: WritingPiece[] = [
   },
   {
     slug: 'hacking',
+    tags: ['Humor', 'Life Hacks', 'Satire'],
     title: 'Hacking',
     date: '2026-06-22',
     excerpt: 'What’s the most beautiful thing in the world? — “Retrospect”, usually comes far too fucking late!',
@@ -41,6 +45,7 @@ export const writing: WritingPiece[] = [
   },
   {
     slug: 'nenua',
+    tags: ['Food', 'Nightlife', 'Reflection', 'Family'],
     title: 'NENUA',
     date: '2026-06-14',
     excerpt: 'Food, cooking & some related thoughts. Raving included…',
@@ -50,6 +55,7 @@ export const writing: WritingPiece[] = [
   },
   {
     slug: 'until-death-all-defeat-is-psychological',
+    tags: ['Year in Review', 'Reflection', 'Career', 'Resilience'],
     title: 'Until death, all defeat is psychological!',
     date: '2026-06-04',
     excerpt: 'Keeping up with the tradition of penning my year-end summary in the Khoya Paaya report, I did the very same in Jan 2026. Publishing it for…',
@@ -59,6 +65,7 @@ export const writing: WritingPiece[] = [
   },
   {
     slug: 'abc-all-bangalore-cafes',
+    tags: ['Food', 'Travel', 'Friendship'],
     title: 'ABC — All Bangalore Cafes',
     date: '2026-03-09',
     excerpt: 'Coffee & its appreciation is not only a part of my identity but also how i define my relationship with a city. I genuinely believe that a…',
@@ -68,6 +75,7 @@ export const writing: WritingPiece[] = [
   },
   {
     slug: 'nuremberg',
+    tags: ['Film Review', 'History'],
     title: 'Nuremberg',
     date: '2026-01-19',
     excerpt: 'Nuremberg is a historic town. For the uninitiated, it is a town in Germany that was primarily infamous and famous for the same reason. It…',
@@ -77,6 +85,7 @@ export const writing: WritingPiece[] = [
   },
   {
     slug: 'ritu-parikshit-toast',
+    tags: ['Wedding Toast', 'Friendship', 'Humor'],
     title: 'Ritu-Parikshit Toast',
     date: '2025-11-24',
     excerpt: '2 of my best friends, Parikshit & Ritu got married on 22nd Nov 2025. I had prepared a toast for the occasion, just in case time permitted…',
@@ -86,6 +95,7 @@ export const writing: WritingPiece[] = [
   },
   {
     slug: 'review-mother-mary-comes-to-me',
+    tags: ['Book Review', 'Memoir'],
     title: 'Review — Mother Mary comes to me!',
     date: '2025-10-03',
     excerpt: 'I never really considered ACs (air conditioners) conducive to creativity. They make me sluggish and uninspired. So does food. I work…',
@@ -95,6 +105,7 @@ export const writing: WritingPiece[] = [
   },
   {
     slug: 'i-have-adhd',
+    tags: ['Mental Health', 'Personal Essay', 'Vulnerability'],
     title: 'I have ADHD.',
     date: '2025-08-12',
     excerpt: 'Normally I do not post something on medium without writing it down on a notebook first. However as with most things in my life, unless I…',
@@ -104,6 +115,7 @@ export const writing: WritingPiece[] = [
   },
   {
     slug: 'things-i-like',
+    tags: ['Reflection', 'Personal Essay', 'Philosophy'],
     title: 'Things I like',
     date: '2025-07-24',
     excerpt: 'What I like about math — is the certainty of logic. For better or worse, mathematics is an idealists dream. A world with law and order…',
@@ -113,6 +125,7 @@ export const writing: WritingPiece[] = [
   },
   {
     slug: 'cheating',
+    tags: ['Poetry', 'Relationships', 'Vulnerability'],
     title: 'Cheating',
     date: '2025-06-07',
     excerpt: 'Hey, man — What’s wrong again? Why so often? I don’t know why I slip again. Why I fall through cracks I carved. Why I can’t just make…',
@@ -122,6 +135,7 @@ export const writing: WritingPiece[] = [
   },
   {
     slug: 'my-boy-s-all-grown-up',
+    tags: ['Friendship', 'Reflection', 'Coming of Age'],
     title: 'My boy’s all grown up!',
     date: '2025-01-25',
     excerpt: 'My friend Varun has experienced extremely pointed moments of growth. One such occasion was 4th April 2023, when Varun took charge of…',
@@ -131,6 +145,7 @@ export const writing: WritingPiece[] = [
   },
   {
     slug: 'khoya-paaya-report-2024',
+    tags: ['Year in Review', 'Reflection', 'Family', 'Friendship'],
     title: 'Khoya Paaya report 2024',
     date: '2024-12-31',
     excerpt: 'Summary and reflections of 2024',
@@ -140,6 +155,7 @@ export const writing: WritingPiece[] = [
   },
   {
     slug: 'sense-and-sensibility',
+    tags: ['Reflection', 'Philosophy', 'Empathy'],
     title: 'Sense and sensibility',
     date: '2024-03-05',
     excerpt: 'Hi y’all,',
@@ -149,6 +165,7 @@ export const writing: WritingPiece[] = [
   },
   {
     slug: 'sushmita-sen-and-fitness',
+    tags: ['Sports', 'Humor', 'Reflection'],
     title: 'Sushmita Sen and Fitness',
     date: '2024-02-24',
     excerpt: 'Friends,',
@@ -158,6 +175,7 @@ export const writing: WritingPiece[] = [
   },
   {
     slug: 'creative-writing-anything-that-just-costs-money-is-not-worth-having',
+    tags: ['Poetry', 'Coming of Age', 'Philosophy'],
     title: 'Creative Writing — Anything that just costs money is not worth having',
     date: '2024-02-23',
     excerpt: 'I was 19 when I wrote this. I am super-pretentious still, imagine what I was back then.',
@@ -167,6 +185,7 @@ export const writing: WritingPiece[] = [
   },
   {
     slug: 'if-i-have-seen-further-it-is-by-standing-on-the-shoulders-of-giants',
+    tags: ['Poetry', 'Family', 'Coming of Age'],
     title: 'If I have seen further, it is by standing on the shoulders of giants',
     date: '2024-02-23',
     excerpt: 'Parents!, Society!, and the previous generation! Are we the YOUTH at a grudge match with them all the time? It’s almost as if genetics…',
@@ -176,6 +195,7 @@ export const writing: WritingPiece[] = [
   },
   {
     slug: 'anyone-who-told-you-to-be-yourself-gave-you-the-worst-advice',
+    tags: ['Poetry', 'Coming of Age'],
     title: 'anyone who told you to be yourself gave you the worst advice',
     date: '2024-02-23',
     excerpt: 'Wrote this poem when I was 19',
@@ -185,6 +205,7 @@ export const writing: WritingPiece[] = [
   },
   {
     slug: 'addiction',
+    tags: ['Poetry', 'Mental Health'],
     title: 'Addiction',
     date: '2024-02-22',
     excerpt: 'A small poem I wrote — addiction is real!',
@@ -194,6 +215,7 @@ export const writing: WritingPiece[] = [
   },
   {
     slug: 'am-i-a-bad-friend-or-an-inadequate-empath',
+    tags: ['Personal Essay', 'Friendship', 'Vulnerability'],
     title: 'Am I a bad friend? or an Inadequate empath?',
     date: '2024-02-22',
     excerpt: 'Fuckfaces,',
@@ -203,6 +225,7 @@ export const writing: WritingPiece[] = [
   },
   {
     slug: 'bourdain-learnings',
+    tags: ['Book Review', 'Career', 'Life Lessons', 'Food'],
     title: 'Bourdain Learnings',
     date: '2024-02-22',
     excerpt: 'I wanted to point out that I finished reading Bourdain\'s 2 classics — “A cooks tour in the search of the perfect meal” and “Kitchen…',
@@ -212,6 +235,7 @@ export const writing: WritingPiece[] = [
   },
   {
     slug: 'drowning-chapter-2-uneventful-morning-on-that-day',
+    tags: ['Fiction', 'Series', 'Suspense'],
     title: 'Drowning — Chapter 2 — Uneventful morning on that day',
     date: '2024-02-22',
     excerpt: 'Please read the chapters in order starting from Drowning — Chapter 0',
@@ -221,6 +245,7 @@ export const writing: WritingPiece[] = [
   },
   {
     slug: 'drowning-chapter-3-cliff-hanger-or-beach-downer',
+    tags: ['Fiction', 'Series', 'Suspense'],
     title: 'Drowning — Chapter 3 — Cliff hanger or beach downer',
     date: '2024-02-22',
     excerpt: 'Please read the chapters in order starting from Drowning — Chapter 0',
@@ -230,6 +255,7 @@ export const writing: WritingPiece[] = [
   },
   {
     slug: 'drowning-chapter-4-horror-horror-horror',
+    tags: ['Fiction', 'Series', 'Suspense'],
     title: 'Drowning — Chapter 4 — Horror horror horror',
     date: '2024-02-22',
     excerpt: 'Please read the chapters in order starting from Drowning — Chapter 0',
@@ -239,6 +265,7 @@ export const writing: WritingPiece[] = [
   },
   {
     slug: 'drowning-chapter-5-the-rule-of-threes',
+    tags: ['Fiction', 'Series', 'Suspense'],
     title: 'Drowning — Chapter 5 — The rule of threes',
     date: '2024-02-22',
     excerpt: 'Please read the chapters in order starting from Drowning — Chapter 0',
@@ -248,6 +275,7 @@ export const writing: WritingPiece[] = [
   },
   {
     slug: 'drowning-chapter-6-epilogue',
+    tags: ['Fiction', 'Series', 'Suspense'],
     title: 'Drowning — Chapter 6 — Epilogue',
     date: '2024-02-22',
     excerpt: 'Please read the chapters in order starting from Drowning — Chapter 0',
@@ -257,6 +285,7 @@ export const writing: WritingPiece[] = [
   },
   {
     slug: 'aamasutra',
+    tags: ['Humor', 'Satire', 'Food'],
     title: 'AAMASUTRA',
     date: '2024-02-21',
     excerpt: 'I was trying to make a case for mango being the most romantic fruit of all time.',
@@ -266,6 +295,7 @@ export const writing: WritingPiece[] = [
   },
   {
     slug: 'creative-writing-zombieland',
+    tags: ['Fiction', 'Horror', 'Competition'],
     title: 'Creative Writing — ZombieLand',
     date: '2024-02-21',
     excerpt: 'This was a creative writing write-up that I wrote for a competition. The word limit was 1500 and I exceeded it by 150 words I think. The…',
@@ -275,6 +305,7 @@ export const writing: WritingPiece[] = [
   },
   {
     slug: 'departing-toast',
+    tags: ['Career', 'Reflection', 'Farewell'],
     title: 'Departing Toast',
     date: '2024-02-21',
     excerpt: 'I quit some job some time back. Needless to say, I was running away from a situation that had developed for 3–4 months. It was a…',
@@ -284,6 +315,7 @@ export const writing: WritingPiece[] = [
   },
   {
     slug: 'drowning-chapter-1-intro',
+    tags: ['Fiction', 'Series', 'Suspense'],
     title: 'Drowning — Chapter 1 — Intro',
     date: '2024-02-21',
     excerpt: 'Please read the chapters in order starting from Drowning — Chapter 0',
@@ -293,6 +325,7 @@ export const writing: WritingPiece[] = [
   },
   {
     slug: 'drowning-chapter-0-prologue',
+    tags: ['Fiction', 'Series', 'Travel'],
     title: 'Drowning Chapter 0 — Prologue',
     date: '2024-02-21',
     excerpt: 'I nearly drowned in April 2023 at Morjim, North Goa. Here’s my slightly caramelized account of the whole experience. I have separated it…',
@@ -302,6 +335,7 @@ export const writing: WritingPiece[] = [
   },
   {
     slug: 'personal-grandma-in-dreams',
+    tags: ['Grief', 'Family', 'Personal Essay'],
     title: 'Personal — Grandma in dreams',
     date: '2024-02-21',
     excerpt: 'An intimate mail I wrote detailing my difficulty sleeping after my grandmother\'s demise.',
@@ -311,6 +345,7 @@ export const writing: WritingPiece[] = [
   },
   {
     slug: 'personal-tragedy-moms-prayer-for-nana',
+    tags: ['Grief', 'Family', 'Eulogy'],
     title: 'Personal Tragedy — Moms Prayer for Nana',
     date: '2024-02-21',
     excerpt: 'I helped my mom write this eulogy for my materbal grandpa(nana).',
@@ -320,6 +355,7 @@ export const writing: WritingPiece[] = [
   },
   {
     slug: 'the-most-beautiful-girl-in-the-world',
+    tags: ['Poetry', 'Family'],
     title: 'The Most beautiful girl in the world',
     date: '2021-11-07',
     excerpt: 'A long while ago,',
@@ -329,6 +365,7 @@ export const writing: WritingPiece[] = [
   },
   {
     slug: 'not-a-love-letter',
+    tags: ['Fiction', 'Satire', 'Humor', 'Letter'],
     title: 'Not A Love Letter',
     date: '2021-10-26',
     excerpt: 'House 13- Silvers Road, West End, London, Dear Andrew Peters, Did you know that Peter was one of the apostles? I so dearly hope that you…',
@@ -338,6 +375,7 @@ export const writing: WritingPiece[] = [
   },
   {
     slug: 'the-pint-not-taken',
+    tags: ['Poetry', 'Humor'],
     title: 'The Pint Not Taken',
     date: '2021-10-26',
     excerpt: 'There were once 2 pints!',
