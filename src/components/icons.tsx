@@ -24,6 +24,16 @@ export function TwitterIcon(props: SVGProps<SVGSVGElement>) {
   );
 }
 
+export function InstagramIcon(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" {...props}>
+      <rect x="2.5" y="2.5" width="19" height="19" rx="5" />
+      <circle cx="12" cy="12" r="4.5" />
+      <circle cx="17.8" cy="6.2" r="1.1" fill="currentColor" stroke="none" />
+    </svg>
+  );
+}
+
 export function MediumIcon(props: SVGProps<SVGSVGElement>) {
   return (
     <svg viewBox="0 0 24 24" fill="currentColor" {...props}>
