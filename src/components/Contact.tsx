@@ -14,28 +14,14 @@ const icons = {
   medium: MediumIcon,
 };
 
-function SocialButton({
-  label,
-  href,
-  icon,
-  primary,
-}: {
-  label: string;
-  href: string;
-  icon: keyof typeof icons;
-  primary?: boolean;
-}) {
+function PrimaryButton({ label, href, icon }: { label: string; href: string; icon: keyof typeof icons }) {
   const Icon = icons[icon];
   return (
     <a
       href={href}
-      target={href.startsWith("mailto:") || href.startsWith("tel:") ? undefined : "_blank"}
+      target="_blank"
       rel="noopener noreferrer"
-      className={
-        primary
-          ? "flex items-center gap-2 rounded-full bg-accent px-4 py-2 text-sm text-background hover:opacity-90 transition-opacity"
-          : "flex items-center gap-2 rounded-full border border-border px-4 py-2 text-sm text-muted hover:text-accent hover:border-accent/50 transition-colors"
-      }
+      className="flex items-center gap-2 rounded-full bg-accent px-5 py-2.5 text-sm font-medium text-background hover:opacity-90 transition-opacity"
     >
       <Icon className="h-4 w-4" />
       {label}
@@ -43,26 +29,58 @@ function SocialButton({
   );
 }
 
-export function Contact() {
+function ContactLink({ label, href, icon }: { label: string; href: string; icon: keyof typeof icons }) {
+  const Icon = icons[icon];
   return (
-    <section id="contact" className="mx-auto max-w-3xl px-6 py-16 scroll-mt-20">
+    <a
+      href={href}
+      target={href.startsWith("mailto:") || href.startsWith("tel:") ? undefined : "_blank"}
+      rel="noopener noreferrer"
+      className="flex items-center gap-2 text-sm text-muted hover:text-accent transition-colors"
+    >
+      <Icon className="h-4 w-4" />
+      {label}
+    </a>
+  );
+}
+
+function IconLink({ label, href, icon }: { label: string; href: string; icon: keyof typeof icons }) {
+  const Icon = icons[icon];
+  return (
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label={label}
+      className="flex h-9 w-9 items-center justify-center rounded-full border border-border text-muted hover:border-accent/50 hover:text-accent transition-colors"
+    >
+      <Icon className="h-4 w-4" />
+    </a>
+  );
+}
+
+export function Contact() {
+  const [primary, ...secondary] = socials;
+
+  return (
+    <section id="contact" className="mx-auto max-w-3xl px-6 py-24 scroll-mt-20">
       <Reveal>
         <h2 className="text-sm font-mono text-accent mb-6">04. Contact</h2>
         <p className="text-foreground/90 max-w-lg leading-relaxed">
           Want to get in touch? Reach out on any of these — I try to reply quickly.
         </p>
-        <div className="mt-6 flex flex-wrap gap-3">
-          {socials.map((social) => (
-            <SocialButton key={social.label} {...social} primary={social.icon === "calendar"} />
+
+        <div className="mt-6 flex flex-wrap items-center gap-x-8 gap-y-4">
+          <PrimaryButton {...primary} />
+          {secondary.map((social) => (
+            <ContactLink key={social.label} {...social} />
           ))}
         </div>
 
-        <p className="mt-10 text-foreground/90 max-w-lg leading-relaxed">
-          Or follow along on:
-        </p>
-        <div className="mt-4 flex flex-wrap gap-3">
+        <div className="mt-16 flex items-center gap-3">
+          <span className="text-xs font-mono text-muted">Follow —</span>
           {followLinks.map((link) => (
-            <SocialButton key={link.label} {...link} />
+            <IconLink key={link.label} {...link} />
           ))}
         </div>
       </Reveal>

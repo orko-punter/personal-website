@@ -8,9 +8,9 @@ import { Reveal } from "@/components/Reveal";
 
 export function Projects() {
   return (
-    <section id="projects" className="mx-auto max-w-3xl px-6 py-16 scroll-mt-20">
+    <section id="projects" className="mx-auto max-w-3xl px-6 py-20 scroll-mt-20">
       <Reveal>
-        <h2 className="text-sm font-mono text-accent mb-8">03. Projects</h2>
+        <h2 className="text-sm font-mono text-accent mb-10">03. Projects</h2>
       </Reveal>
       <div className="grid gap-4 sm:grid-cols-2">
         {projects.map((project, i) => (
