@@ -6,13 +6,13 @@ import { useEffect, useState } from "react";
 
 const links = [
   { label: "About", href: "/#about" },
-  { label: "Experience", href: "/#experience" },
+  { label: "Experience", href: "/experience" },
   { label: "Projects", href: "/#projects" },
   { label: "Writing", href: "/blog" },
   { label: "Contact", href: "/#contact" },
 ];
 
-const sectionIds = ["about", "experience", "projects", "contact"];
+const sectionIds = ["about", "projects", "contact"];
 
 export function Nav() {
   const pathname = usePathname();
@@ -51,7 +51,7 @@ export function Nav() {
             const sectionId = link.href.startsWith("/#") ? link.href.slice(2) : null;
             const isActive =
               (sectionId && isHome && activeSection === sectionId) ||
-              (link.href === "/blog" && pathname?.startsWith("/blog"));
+              (!sectionId && link.href !== "/" && pathname?.startsWith(link.href));
             return (
               <li key={link.href}>
                 <Link

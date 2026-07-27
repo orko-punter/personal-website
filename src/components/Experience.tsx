@@ -3,9 +3,9 @@ import { Reveal } from "@/components/Reveal";
 
 export function Experience() {
   return (
-    <section id="experience" className="mx-auto max-w-3xl px-6 py-20 scroll-mt-20">
+    <section className="mx-auto max-w-3xl px-6 py-16">
       <Reveal>
-        <h2 className="text-sm font-mono text-accent mb-10">02. Experience</h2>
+        <h2 className="text-sm font-mono text-accent mb-10">Experience</h2>
       </Reveal>
       <div className="space-y-12 border-l border-border pl-6">
         {experience.map((entry, i) => (
