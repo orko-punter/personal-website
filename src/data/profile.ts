@@ -2,7 +2,7 @@ export const profile = {
   name: "Anish Raj Anand",
   tagline: "Strategy & Product",
   tags: ["Problem Solving", "Adventures", "Business"],
-  bio: "My experience runs across business consulting and product management. I like to create to solve — and what I can't solve, I write about.",
+  bio: "I find my excitement in this world through solving problems — be it strategy for my clients, building a new product for my team, or dancing to cure the staleness of the day!",
   location: "London",
   avatar: "/avatar.jpg", // put an image at public/avatar.jpg, or leave as-is to use initials
 };

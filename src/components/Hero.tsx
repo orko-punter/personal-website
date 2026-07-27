@@ -40,7 +40,7 @@ export function Hero() {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5, delay: 0.1 }}
         >
-          <Avatar src={profile.avatar} name={profile.name} />
+          <Avatar src={profile.avatar} name={profile.name} focalPoint="50% 16%" />
         </motion.div>
       </div>
 

@@ -16,10 +16,12 @@ export function Avatar({
   src,
   name,
   size = 112,
+  focalPoint = "center 20%",
 }: {
   src: string;
   name: string;
   size?: number;
+  focalPoint?: string;
 }) {
   const [errored, setErrored] = useState(false);
   const imgRef = useRef<HTMLImageElement>(null);
@@ -51,7 +53,7 @@ export function Avatar({
       width={size}
       height={size}
       onError={() => setErrored(true)}
-      style={{ width: size, height: size }}
+      style={{ width: size, height: size, objectPosition: focalPoint }}
       className="shrink-0 rounded-full border border-border object-cover"
     />
   );
