@@ -60,7 +60,7 @@ export function Hero() {
         {profile.tags.map((tag) => (
           <span
             key={tag}
-            className="rounded-full border border-border px-3 py-1 text-xs text-muted"
+            className="rounded-full border border-border px-3 py-1 text-xs text-muted transition-colors hover:border-accent hover:text-accent"
           >
             {tag}
           </span>

@@ -18,7 +18,7 @@ export function Projects() {
             <motion.div
               whileHover={{ y: -4 }}
               transition={{ duration: 0.2 }}
-              className="h-full rounded-xl border border-border bg-surface p-5 hover:border-accent/50 transition-colors"
+              className="h-full rounded-xl border border-border bg-surface p-5 shadow-sm transition-all hover:border-accent/50 hover:shadow-md hover:shadow-accent/10"
             >
               <div className="flex items-start justify-between gap-2">
                 <h3 className="font-medium text-foreground">{project.title}</h3>

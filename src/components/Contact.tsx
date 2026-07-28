@@ -21,7 +21,7 @@ function PrimaryButton({ label, href, icon }: { label: string; href: string; ico
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className="flex items-center gap-2 rounded-full bg-accent px-5 py-2.5 text-sm font-medium text-background hover:opacity-90 transition-opacity"
+      className="flex items-center gap-2 rounded-full bg-accent px-5 py-2.5 text-sm font-medium text-white shadow-md shadow-accent/20 transition-all duration-200 hover:-translate-y-0.5 hover:scale-105 hover:shadow-lg hover:shadow-accent/30"
     >
       <Icon className="h-4 w-4" />
       {label}
@@ -36,9 +36,9 @@ function ContactLink({ label, href, icon }: { label: string; href: string; icon:
       href={href}
       target={href.startsWith("mailto:") || href.startsWith("tel:") ? undefined : "_blank"}
       rel="noopener noreferrer"
-      className="flex items-center gap-2 text-sm text-muted hover:text-accent transition-colors"
+      className="group flex items-center gap-2 text-sm text-muted transition-colors hover:text-accent"
     >
-      <Icon className="h-4 w-4" />
+      <Icon className="h-4 w-4 transition-transform duration-200 group-hover:scale-110" />
       {label}
     </a>
   );
@@ -52,7 +52,7 @@ function IconLink({ label, href, icon }: { label: string; href: string; icon: ke
       target="_blank"
       rel="noopener noreferrer"
       aria-label={label}
-      className="flex h-9 w-9 items-center justify-center rounded-full border border-border text-muted hover:border-accent/50 hover:text-accent transition-colors"
+      className="flex h-9 w-9 items-center justify-center rounded-full border border-border text-muted transition-all duration-200 hover:-translate-y-0.5 hover:scale-110 hover:border-accent hover:bg-accent hover:text-white"
     >
       <Icon className="h-4 w-4" />
     </a>

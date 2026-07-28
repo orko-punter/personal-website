@@ -1,12 +1,12 @@
 @import "tailwindcss";
 
 :root {
-  --background: #0a0a0c;
-  --surface: #131316;
-  --foreground: #ededed;
-  --muted: #8a8a93;
-  --accent: #818cf8;
-  --border: #232327;
+  --background: #fff8f1;
+  --surface: #ffffff;
+  --foreground: #2a1b0f;
+  --muted: #7a6a5c;
+  --accent: #c2410c;
+  --border: #eae0d3;
 }
 
 @theme inline {
@@ -21,7 +21,7 @@
 }
 
 html {
-  color-scheme: dark;
+  color-scheme: light;
   scroll-behavior: smooth;
 }
 
@@ -33,7 +33,7 @@ body {
 
 ::selection {
   background: var(--accent);
-  color: var(--background);
+  color: #ffffff;
 }
 
 .post-content p {
