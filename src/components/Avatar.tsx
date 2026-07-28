@@ -16,15 +16,24 @@ export function Avatar({
   src,
   name,
   size = 112,
+  width,
+  height,
   focalPoint = "center 20%",
+  shape = "circle",
 }: {
   src: string;
   name: string;
   size?: number;
+  width?: number;
+  height?: number;
   focalPoint?: string;
+  shape?: "circle" | "rectangle";
 }) {
   const [errored, setErrored] = useState(false);
   const imgRef = useRef<HTMLImageElement>(null);
+  const w = width ?? size;
+  const h = height ?? size;
+  const shapeClass = shape === "circle" ? "rounded-full" : "rounded-2xl";
 
   useEffect(() => {
     const img = imgRef.current;
@@ -36,8 +45,8 @@ export function Avatar({
   if (errored) {
     return (
       <div
-        style={{ width: size, height: size, fontSize: size / 3 }}
-        className="flex shrink-0 items-center justify-center rounded-full border border-border bg-surface font-mono text-accent"
+        style={{ width: w, height: h, fontSize: Math.min(w, h) / 3 }}
+        className={`flex shrink-0 items-center justify-center border border-border bg-surface font-mono text-accent ${shapeClass}`}
       >
         {initialsOf(name)}
       </div>
@@ -50,11 +59,11 @@ export function Avatar({
       ref={imgRef}
       src={src}
       alt={name}
-      width={size}
-      height={size}
+      width={w}
+      height={h}
       onError={() => setErrored(true)}
-      style={{ width: size, height: size, objectPosition: focalPoint }}
-      className="shrink-0 rounded-full border border-border object-cover"
+      style={{ width: w, height: h, objectPosition: focalPoint }}
+      className={`shrink-0 border border-border object-cover ${shapeClass}`}
     />
   );
 }

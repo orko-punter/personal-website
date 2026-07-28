@@ -7,7 +7,22 @@ import { Avatar } from "@/components/Avatar";
 export function Hero() {
   return (
     <section id="about" className="mx-auto max-w-3xl px-6 pt-24 pb-28 scroll-mt-20">
-      <div className="flex flex-col-reverse items-start gap-10 sm:flex-row sm:items-center sm:justify-between">
+      <div className="flex flex-col items-start gap-10 sm:flex-row sm:items-center">
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+        >
+          <Avatar
+            src={profile.avatar}
+            name={profile.name}
+            shape="rectangle"
+            width={220}
+            height={280}
+            focalPoint="50% 16%"
+          />
+        </motion.div>
+
         <div>
           <motion.p
             initial={{ opacity: 0, y: 10 }}
@@ -34,14 +49,6 @@ export function Hero() {
             {profile.tagline}
           </motion.p>
         </div>
-
-        <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.5, delay: 0.1 }}
-        >
-          <Avatar src={profile.avatar} name={profile.name} focalPoint="50% 16%" />
-        </motion.div>
       </div>
 
       <motion.div
