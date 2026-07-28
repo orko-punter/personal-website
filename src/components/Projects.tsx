@@ -8,7 +8,7 @@ import { Reveal } from "@/components/Reveal";
 
 export function Projects() {
   return (
-    <section id="projects" className="mx-auto max-w-3xl px-6 py-20 scroll-mt-20">
+    <section className="mx-auto max-w-3xl px-6 py-16">
       <Reveal>
         <h2 className="text-sm font-mono text-accent mb-10">Projects</h2>
       </Reveal>

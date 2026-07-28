@@ -7,12 +7,12 @@ import { useEffect, useState } from "react";
 const links = [
   { label: "About", href: "/#about" },
   { label: "Experience", href: "/experience" },
-  { label: "Projects", href: "/#projects" },
+  { label: "Projects", href: "/projects" },
   { label: "Writing", href: "/blog" },
   { label: "Contact", href: "/#contact" },
 ];
 
-const sectionIds = ["about", "projects", "contact"];
+const sectionIds = ["about", "contact"];
 
 export function Nav() {
   const pathname = usePathname();
