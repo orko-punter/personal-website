@@ -63,7 +63,7 @@ export function Contact() {
   const [primary, ...secondary] = socials;
 
   return (
-    <section id="contact" className="mx-auto max-w-3xl px-6 py-24 scroll-mt-20">
+    <section id="contact" className="mx-auto max-w-3xl px-6 py-24">
       <Reveal>
         <h2 className="text-sm font-mono text-accent mb-6">Contact</h2>
         <p className="text-foreground/90 max-w-lg leading-relaxed">
