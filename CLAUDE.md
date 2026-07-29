@@ -16,6 +16,15 @@ npx tsc --noEmit # type-check (no separate script defined; run this directly)
 
 There is no test runner configured in this project.
 
+## Deployment
+
+The site is a static export (`output: "export"` in `next.config.ts`) deployed to GitHub Pages, not Vercel — a `.github/workflows/deploy.yml` workflow builds and publishes to Pages on every push to `main` (Pages source is set to "GitHub Actions" on the repo, not a branch). Live at `https://orko-punter.github.io/personal-website/`.
+
+This has two consequences for future changes:
+
+- **No server features.** No API routes, middleware, Server Actions, ISR, or `next/image`'s default (server-based) loader — GitHub Pages only serves static files. `npm run build` will fail loudly if something incompatible is added; see `node_modules/next/dist/docs/01-app/02-guides/static-exports.md` for the supported/unsupported feature list for this Next.js version.
+- **Every route is served from a subpath**, not the domain root, because this is a GitHub Pages *project* site (`basePath: "/personal-website"` in `next.config.ts`, matching the repo name). `next/link` and `next/image` apply `basePath` automatically, but plain `<img src="...">` strings do not — any new hardcoded root-relative asset path (like `profile.avatar` in `src/data/profile.ts`) must be prefixed manually via `process.env.NEXT_PUBLIC_BASE_PATH` or it will 404 in production while working fine in `npm run dev`.
+
 ## Architecture
 
 This is a single-person portfolio/blog site (Next.js 16, App Router, TypeScript, Tailwind v4). The defining pattern: **all page content lives in typed data files under `src/data/`, not in components**. Components are presentational and map over these arrays; to update site content (bio, experience, projects, blog posts), edit the data file, not the component.
