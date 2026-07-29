@@ -1,10 +1,15 @@
+// GitHub Pages serves this site from /personal-website/, so plain <img> src
+// strings (which next/link's basePath rewriting doesn't touch) need the
+// prefix applied manually — see next.config.ts.
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+
 export const profile = {
   name: "Anish Raj Anand",
   tagline: "Strategy & Product",
   tags: ["Problem Solving", "Adventures", "Business"],
   bio: "I find my excitement in this world through solving problems — be it strategy for my clients, building a new product for my team, or dancing to cure the staleness of the day!",
   location: "London",
-  avatar: "/avatar.jpg", // put an image at public/avatar.jpg, or leave as-is to use initials
+  avatar: `${basePath}/avatar.jpg`, // put an image at public/avatar.jpg, or leave as-is to use initials
 };
 
 export const socials = [
