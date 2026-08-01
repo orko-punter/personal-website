@@ -1,7 +1,11 @@
+"use client";
+
 import { Calendar, Mail, Phone } from "lucide-react";
 import { GithubIcon, InstagramIcon, LinkedinIcon, MediumIcon, TwitterIcon } from "@/components/icons";
-import { profile, socials, followLinks } from "@/data/profile";
+import { profile, socials, support, followLinks } from "@/data/profile";
 import { Reveal } from "@/components/Reveal";
+import { SupportButton } from "@/components/SupportButton";
+import { MagnifyGroup, MagnifyItem } from "@/components/Magnify";
 
 const icons = {
   mail: Mail,
@@ -52,7 +56,7 @@ function IconLink({ label, href, icon }: { label: string; href: string; icon: ke
       target="_blank"
       rel="noopener noreferrer"
       aria-label={label}
-      className="flex h-9 w-9 items-center justify-center rounded-full border border-border text-muted transition-all duration-200 hover:-translate-y-0.5 hover:scale-110 hover:border-accent hover:bg-accent hover:text-white"
+      className="flex h-9 w-9 items-center justify-center rounded-full border border-border text-muted transition-colors duration-200 hover:border-accent hover:bg-accent hover:text-white"
     >
       <Icon className="h-4 w-4" />
     </a>
@@ -70,6 +74,10 @@ export function Contact() {
           Want to get in touch? Reach out on any of these — I try to reply quickly.
         </p>
 
+        <div className="mt-6">
+          <SupportButton {...support} />
+        </div>
+
         <div className="mt-6 flex flex-wrap items-center gap-x-8 gap-y-4">
           <PrimaryButton {...primary} />
           {secondary.map((social) => (
@@ -79,9 +87,13 @@ export function Contact() {
 
         <div className="mt-16 flex items-center gap-3">
           <span className="text-xs font-mono text-muted">Follow —</span>
-          {followLinks.map((link) => (
-            <IconLink key={link.label} {...link} />
-          ))}
+          <MagnifyGroup className="flex items-center gap-3">
+            {followLinks.map((link) => (
+              <MagnifyItem key={link.label} range={80} maxScale={1.25} liftPx={4}>
+                <IconLink {...link} />
+              </MagnifyItem>
+            ))}
+          </MagnifyGroup>
         </div>
       </Reveal>
       <footer className="mt-20 text-xs text-muted">

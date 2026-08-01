@@ -2,9 +2,11 @@
 
 import { motion } from "framer-motion";
 import { Briefcase, FolderGit2, Mail, PenLine, User } from "lucide-react";
-import { profile } from "@/data/profile";
+import { profile, support } from "@/data/profile";
 import { navLinks } from "@/data/nav";
 import { Avatar } from "@/components/Avatar";
+import { SupportButton } from "@/components/SupportButton";
+import { MagnifyGroup, MagnifyItem } from "@/components/Magnify";
 
 const icons = {
   About: User,
@@ -78,75 +80,79 @@ export function Hero() {
             height: "calc(var(--radius) * 2 + 110px)",
           }}
         >
-          {/* Connector lines from center to each node */}
-          {navLinks.map((link, i) => {
-            const angle = -90 + i * angleStep;
-            return (
-              <div
-                key={`line-${link.href}`}
-                className="absolute left-1/2 top-1/2 h-px origin-left"
+          <MagnifyGroup className="absolute inset-0">
+            {/* Connector lines from center to each node */}
+            {navLinks.map((link, i) => {
+              const angle = -90 + i * angleStep;
+              return (
+                <div
+                  key={`line-${link.href}`}
+                  className="absolute left-1/2 top-1/2 h-px origin-left"
+                  style={{
+                    width: "var(--radius)",
+                    transform: `rotate(${angle}deg)`,
+                    background:
+                      "linear-gradient(to right, var(--accent), transparent)",
+                    opacity: 0.5,
+                  }}
+                />
+              );
+            })}
+
+            {/* Center: glowing ring + avatar */}
+            <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+              <motion.div
+                className="absolute -inset-3 rounded-full blur-md"
                 style={{
-                  width: "var(--radius)",
-                  transform: `rotate(${angle}deg)`,
                   background:
-                    "linear-gradient(to right, var(--accent), transparent)",
-                  opacity: 0.5,
+                    "conic-gradient(from 0deg, var(--accent), var(--hero-glow-b), var(--accent))",
                 }}
+                animate={{ rotate: 360 }}
+                transition={{ duration: 12, repeat: Infinity, ease: "linear" }}
               />
-            );
-          })}
-
-          {/* Center: glowing ring + avatar */}
-          <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
-            <motion.div
-              className="absolute -inset-3 rounded-full blur-md"
-              style={{
-                background:
-                  "conic-gradient(from 0deg, var(--accent), var(--hero-glow-b), var(--accent))",
-              }}
-              animate={{ rotate: 360 }}
-              transition={{ duration: 12, repeat: Infinity, ease: "linear" }}
-            />
-            <div className="relative rounded-full ring-8 ring-background">
-              <Avatar
-                src={profile.avatar}
-                name={profile.name}
-                shape="circle"
-                size={140}
-                focalPoint="50% 16%"
-              />
-            </div>
-          </div>
-
-          {/* Orbiting nav nodes */}
-          {navLinks.map((link, i) => {
-            const angle = -90 + i * angleStep;
-            const rad = (angle * Math.PI) / 180;
-            const x = Math.cos(rad);
-            const y = Math.sin(rad);
-            const Icon = icons[link.label];
-            return (
-              <div
-                key={link.href}
-                className="group absolute flex -translate-x-1/2 -translate-y-1/2 flex-col items-center gap-2"
-                style={{
-                  left: `calc(50% + ${x} * var(--radius))`,
-                  top: `calc(50% + ${y} * var(--radius))`,
-                }}
-              >
-                <a
-                  href={link.href}
-                  className="flex h-14 w-14 items-center justify-center rounded-full border border-foreground/15 bg-foreground/5 text-foreground/70 backdrop-blur-sm transition-all duration-200 hover:scale-110 hover:border-accent hover:text-foreground"
-                  style={{ boxShadow: "0 0 20px -6px var(--accent)" }}
-                >
-                  <Icon className="h-5 w-5" />
-                </a>
-                <span className="font-mono text-xs text-foreground/50 transition-colors group-hover:text-foreground">
-                  {link.label}
-                </span>
+              <div className="relative rounded-full ring-8 ring-background">
+                <Avatar
+                  src={profile.avatar}
+                  name={profile.name}
+                  shape="circle"
+                  size={140}
+                  focalPoint="50% 16%"
+                />
               </div>
-            );
-          })}
+            </div>
+
+            {/* Orbiting nav nodes — magnify toward the cursor, dock-style */}
+            {navLinks.map((link, i) => {
+              const angle = -90 + i * angleStep;
+              const rad = (angle * Math.PI) / 180;
+              const x = Math.cos(rad);
+              const y = Math.sin(rad);
+              const Icon = icons[link.label];
+              return (
+                <div
+                  key={link.href}
+                  className="group absolute flex -translate-x-1/2 -translate-y-1/2 flex-col items-center gap-2"
+                  style={{
+                    left: `calc(50% + ${x} * var(--radius))`,
+                    top: `calc(50% + ${y} * var(--radius))`,
+                  }}
+                >
+                  <MagnifyItem range={100} maxScale={1.3} liftPx={6}>
+                    <a
+                      href={link.href}
+                      className="flex h-14 w-14 items-center justify-center rounded-full border border-foreground/15 bg-foreground/5 text-foreground/70 backdrop-blur-sm transition-colors duration-200 hover:border-accent hover:text-foreground"
+                      style={{ boxShadow: "0 0 20px -6px var(--accent)" }}
+                    >
+                      <Icon className="h-5 w-5" />
+                    </a>
+                  </MagnifyItem>
+                  <span className="font-mono text-xs text-foreground/50 transition-colors group-hover:text-foreground">
+                    {link.label}
+                  </span>
+                </div>
+              );
+            })}
+          </MagnifyGroup>
         </motion.div>
 
         <motion.p
@@ -172,6 +178,15 @@ export function Hero() {
               {tag}
             </span>
           ))}
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.6 }}
+          className="mt-8 flex justify-center"
+        >
+          <SupportButton {...support} />
         </motion.div>
       </div>
     </section>

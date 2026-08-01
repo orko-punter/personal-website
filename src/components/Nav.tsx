@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { navLinks } from "@/data/nav";
+import { MagnifyGroup, MagnifyItem } from "@/components/Magnify";
 
 export function Nav() {
   const pathname = usePathname();
@@ -17,11 +18,11 @@ export function Nav() {
         <Link href="/" className="font-mono text-sm text-foreground hover:text-accent transition-colors">
           ~/home
         </Link>
-        <ul className="flex items-center gap-5 text-sm">
+        <MagnifyGroup as="ul" className="flex items-center gap-5 text-sm">
           {navLinks.map((link) => {
             const isActive = !link.href.startsWith("/#") && pathname?.startsWith(link.href);
             return (
-              <li key={link.href}>
+              <MagnifyItem key={link.href} as="li" range={70} maxScale={1.2} liftPx={3}>
                 <Link
                   href={link.href}
                   className={`transition-colors hover:text-accent ${
@@ -30,10 +31,10 @@ export function Nav() {
                 >
                   {link.label}
                 </Link>
-              </li>
+              </MagnifyItem>
             );
           })}
-        </ul>
+        </MagnifyGroup>
       </nav>
     </header>
   );

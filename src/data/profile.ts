@@ -14,6 +14,11 @@ export const socials = [
   { label: "Phone", href: "tel:+447417353138", icon: "phone" },
 ] as const;
 
+export const support = {
+  label: "Support my work",
+  href: "https://buy.stripe.com/6oUfZiccYgj75yP7tmds400",
+} as const;
+
 export const followLinks = [
   { label: "Follow on LinkedIn", href: "https://www.linkedin.com/in/rraa11296/", icon: "linkedin" },
   { label: "Follow on Instagram", href: "https://www.instagram.com/utopiaisnotreal/", icon: "instagram" },

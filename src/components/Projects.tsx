@@ -1,10 +1,10 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import { GithubIcon } from "@/components/icons";
 import { projects } from "@/data/projects";
 import { Reveal } from "@/components/Reveal";
+import { TiltCard } from "@/components/TiltCard";
 
 export function Projects() {
   return (
@@ -15,11 +15,7 @@ export function Projects() {
       <div className="grid gap-4 sm:grid-cols-2">
         {projects.map((project, i) => (
           <Reveal key={project.title} delay={i * 0.05}>
-            <motion.div
-              whileHover={{ y: -4 }}
-              transition={{ duration: 0.2 }}
-              className="h-full rounded-xl border border-border bg-surface p-5 shadow-sm transition-all hover:border-accent/50 hover:shadow-md hover:shadow-accent/10"
-            >
+            <TiltCard className="h-full rounded-xl border border-border bg-surface p-5 shadow-sm transition-colors hover:border-accent/50 hover:shadow-md hover:shadow-accent/10">
               <div className="flex items-start justify-between gap-2">
                 <h3 className="font-medium text-foreground">{project.title}</h3>
                 <div className="flex gap-2 shrink-0">
@@ -55,7 +51,7 @@ export function Projects() {
                   </span>
                 ))}
               </div>
-            </motion.div>
+            </TiltCard>
           </Reveal>
         ))}
       </div>

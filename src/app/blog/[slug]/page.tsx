@@ -2,6 +2,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft, ArrowUpRight } from "lucide-react";
 import { writing } from "@/data/writing";
+import { ReadingProgress } from "@/components/ReadingProgress";
 
 export function generateStaticParams() {
   return writing.map((piece) => ({ slug: piece.slug }));
@@ -29,6 +30,7 @@ export default async function BlogPostPage({
 
   return (
     <article className="mx-auto max-w-2xl px-6 py-16">
+      <ReadingProgress />
       <Link
         href="/blog"
         className="inline-flex items-center gap-1.5 text-sm text-muted hover:text-accent transition-colors"

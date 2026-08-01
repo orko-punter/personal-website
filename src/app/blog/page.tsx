@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { ArrowUpRight } from "lucide-react";
 import { writing } from "@/data/writing";
 import { Reveal } from "@/components/Reveal";
 
@@ -19,10 +20,17 @@ export default function BlogPage() {
       <div className="mt-10 divide-y divide-border">
         {sorted.map((piece, i) => (
           <Reveal key={piece.slug} delay={i * 0.05}>
-            <Link href={`/blog/${piece.slug}`} className="group block py-5">
+            <Link
+              href={`/blog/${piece.slug}`}
+              className="group block -mx-3 rounded-lg px-3 py-5 transition-colors duration-300 hover:bg-surface"
+            >
               <div className="flex flex-wrap items-baseline justify-between gap-x-3">
-                <h2 className="text-foreground group-hover:text-accent transition-colors">
+                <h2 className="flex items-center gap-1.5 text-foreground transition-colors group-hover:text-accent">
                   {piece.title}
+                  <ArrowUpRight
+                    size={16}
+                    className="-translate-x-1 opacity-0 transition-all duration-200 group-hover:translate-x-0 group-hover:opacity-100"
+                  />
                 </h2>
                 <span className="text-xs font-mono text-muted whitespace-nowrap">
                   {piece.date} · {piece.readTime}
