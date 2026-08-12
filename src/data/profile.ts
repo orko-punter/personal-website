@@ -1,6 +1,7 @@
 export const profile = {
   name: "Anish Raj Anand",
   tagline: "Strategy & Product",
+  credential: "MBA 2028 @ LBS",
   tags: ["Problem Solving", "Adventures", "Business"],
   bio: "I find my excitement in this world through solving problems — be it strategy for my clients, building a new product for my team, or dancing to cure the staleness of the day!",
   location: "London",

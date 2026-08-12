@@ -64,6 +64,14 @@ export function Hero() {
         <motion.p
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.15 }}
+          className="mt-3 inline-block rounded-full border border-accent/40 px-3 py-1 font-mono text-xs text-accent"
+        >
+          {profile.credential}
+        </motion.p>
+        <motion.p
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
           className="mt-2 text-lg text-foreground/60"
         >
