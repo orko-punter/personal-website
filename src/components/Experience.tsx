@@ -1,51 +1,49 @@
 import { experience } from "@/data/experience";
+import { palette } from "@/data/profile";
 import { Reveal } from "@/components/Reveal";
 
 export function Experience() {
   return (
-    <section className="mx-auto max-w-3xl px-6 py-16">
+    <section className="mx-auto max-w-5xl px-5 sm:px-6 pt-16 pb-24">
       <Reveal>
-        <h2 className="text-sm font-mono text-accent mb-10">Experience</h2>
+        <p className="eyebrow">Experience</p>
+        <h1 className="display mt-4 text-[clamp(42px,6.4vw,84px)]">Where I&apos;ve <em>worked</em></h1>
+        <p className="mt-5 max-w-[60ch] text-[17px] text-muted">Strategy, consulting, product and engineering: four places, one habit of turning messy problems into numbers people act on.</p>
       </Reveal>
-      <div className="space-y-12 border-l border-border pl-6">
-        {experience.map((entry, i) => (
-          <Reveal key={`${entry.company}-${entry.role}`} delay={i * 0.05} className="group relative">
-            <span className="absolute -left-[29px] top-1.5 h-2.5 w-2.5 rounded-full bg-accent transition-all duration-300 group-hover:scale-150 group-hover:shadow-[0_0_10px_var(--accent)]" />
-            <div className="-mx-3 rounded-lg px-3 py-2 transition-colors duration-300 group-hover:bg-surface">
-              <div className="flex flex-wrap items-baseline justify-between gap-x-3">
-                <h3 className="text-foreground font-medium">
-                  {entry.role} ·{" "}
+      <div className="mt-12 grid gap-4">
+        {experience.map((entry, i) => {
+          const c = palette[i % palette.length];
+          return (
+            <Reveal key={`${entry.company}-${entry.role}`} delay={i * 0.05}>
+              <article className="lift rounded-[26px] border border-border bg-surface p-6 sm:p-8">
+                <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
+                  <span className="rounded-full px-3 py-1 text-[12.5px] font-semibold" style={{ background: c.tint, color: `color-mix(in srgb, ${c.ink} 55%, #111)` }}>
+                    {entry.start} — {entry.end}
+                  </span>
+                </div>
+                <h2 className="mt-4 font-display text-[clamp(24px,3vw,32px)] font-semibold leading-tight tracking-[-0.03em]">
+                  {entry.role} <span className="font-serif italic font-normal text-accent">at</span>{" "}
                   {entry.companyUrl ? (
-                    <a
-                      href={entry.companyUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-accent hover:underline"
-                    >
+                    <a href={entry.companyUrl} target="_blank" rel="noopener noreferrer" className="underline decoration-2 underline-offset-4 hover:text-accent" style={{ textDecorationColor: c.ink }}>
                       {entry.company}
                     </a>
-                  ) : (
-                    <span className="text-accent">{entry.company}</span>
-                  )}
-                </h3>
-                <span className="text-xs font-mono text-muted whitespace-nowrap">
-                  {entry.start} — {entry.end}
-                </span>
-              </div>
-              <p className="mt-2 text-sm text-foreground/80 leading-relaxed">{entry.summary}</p>
-              {entry.highlights && entry.highlights.length > 0 && (
-                <ul className="mt-3 space-y-1.5">
-                  {entry.highlights.map((point) => (
-                    <li key={point} className="text-sm text-muted flex gap-2">
-                      <span className="text-accent">–</span>
-                      {point}
-                    </li>
-                  ))}
-                </ul>
-              )}
-            </div>
-          </Reveal>
-        ))}
+                  ) : entry.company}
+                </h2>
+                <p className="mt-3 max-w-[70ch] text-[16px] leading-relaxed text-foreground/85">{entry.summary}</p>
+                {entry.highlights && entry.highlights.length > 0 && (
+                  <ul className="mt-5 grid gap-3">
+                    {entry.highlights.map((point) => (
+                      <li key={point} className="flex gap-3 text-[15px] leading-relaxed text-muted">
+                        <span aria-hidden className="mt-[9px] h-2 w-2 shrink-0 rounded-full" style={{ background: c.ink }} />
+                        {point}
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </article>
+            </Reveal>
+          );
+        })}
       </div>
     </section>
   );

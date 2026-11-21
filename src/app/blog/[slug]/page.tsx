@@ -33,14 +33,14 @@ export default async function BlogPostPage({
       <ReadingProgress />
       <Link
         href="/blog"
-        className="inline-flex items-center gap-1.5 text-sm text-muted hover:text-accent transition-colors"
+        className="pill min-h-10 px-4 text-[14px]"
       >
         <ArrowLeft size={14} />
         All writing
       </Link>
 
-      <h1 className="mt-6 text-3xl font-semibold text-foreground">{piece.title}</h1>
-      <div className="mt-2 flex flex-wrap items-center gap-x-3 gap-y-1 text-xs font-mono text-muted">
+      <h1 className="display mt-8 text-[clamp(38px,5.6vw,64px)]">{piece.title}</h1>
+      <div className="mt-4 flex flex-wrap items-center gap-x-3 gap-y-1 text-[13.5px] text-muted">
         <span>
           {piece.date} · {piece.readTime}
         </span>
@@ -58,7 +58,7 @@ export default async function BlogPostPage({
       </div>
 
       <div
-        className="post-content mt-8 leading-relaxed text-foreground/90"
+        className="post-content mt-10 text-[17.5px] leading-[1.7] text-foreground/90"
         dangerouslySetInnerHTML={{ __html: piece.contentHtml }}
       />
     </article>

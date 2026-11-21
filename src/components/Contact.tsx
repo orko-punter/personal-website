@@ -1,11 +1,9 @@
 "use client";
 
-import { Calendar, Mail, Phone } from "lucide-react";
+import { Calendar, Coffee, Mail, Phone } from "lucide-react";
 import { GithubIcon, InstagramIcon, LinkedinIcon, MediumIcon, TwitterIcon } from "@/components/icons";
 import { profile, socials, support, followLinks } from "@/data/profile";
 import { Reveal } from "@/components/Reveal";
-import { SupportButton } from "@/components/SupportButton";
-import { MagnifyGroup, MagnifyItem } from "@/components/Magnify";
 
 const icons = {
   mail: Mail,
@@ -18,36 +16,6 @@ const icons = {
   medium: MediumIcon,
 };
 
-function PrimaryButton({ label, href, icon }: { label: string; href: string; icon: keyof typeof icons }) {
-  const Icon = icons[icon];
-  return (
-    <a
-      href={href}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="flex items-center gap-2 rounded-full bg-accent px-5 py-2.5 text-sm font-medium text-white shadow-md shadow-accent/20 transition-all duration-200 hover:-translate-y-0.5 hover:scale-105 hover:shadow-lg hover:shadow-accent/30"
-    >
-      <Icon className="h-4 w-4" />
-      {label}
-    </a>
-  );
-}
-
-function ContactLink({ label, href, icon }: { label: string; href: string; icon: keyof typeof icons }) {
-  const Icon = icons[icon];
-  return (
-    <a
-      href={href}
-      target={href.startsWith("mailto:") || href.startsWith("tel:") ? undefined : "_blank"}
-      rel="noopener noreferrer"
-      className="group flex items-center gap-2 text-sm text-muted transition-colors hover:text-accent"
-    >
-      <Icon className="h-4 w-4 transition-transform duration-200 group-hover:scale-110" />
-      {label}
-    </a>
-  );
-}
-
 function IconLink({ label, href, icon }: { label: string; href: string; icon: keyof typeof icons }) {
   const Icon = icons[icon];
   return (
@@ -56,7 +24,7 @@ function IconLink({ label, href, icon }: { label: string; href: string; icon: ke
       target="_blank"
       rel="noopener noreferrer"
       aria-label={label}
-      className="flex h-9 w-9 items-center justify-center rounded-full border border-border text-muted transition-colors duration-200 hover:border-accent hover:bg-accent hover:text-white"
+      className="flex h-11 w-11 items-center justify-center rounded-full border border-white/25 text-white/80 transition-colors duration-200 hover:border-white hover:bg-white hover:text-[#0b0b0a]"
     >
       <Icon className="h-4 w-4" />
     </a>
@@ -67,36 +35,42 @@ export function Contact() {
   const [primary, ...secondary] = socials;
 
   return (
-    <section id="contact" className="mx-auto max-w-3xl px-6 py-24">
+    <section id="contact" className="scroll-mt-20 px-3 sm:px-6 pb-10">
       <Reveal>
-        <h2 className="text-sm font-mono text-accent mb-6">Contact</h2>
-        <p className="text-foreground/90 max-w-lg leading-relaxed">
-          Want to get in touch? Reach out on any of these — I try to reply quickly.
-        </p>
-
-        <div className="mt-6">
-          <SupportButton {...support} />
-        </div>
-
-        <div className="mt-6 flex flex-wrap items-center gap-x-8 gap-y-4">
-          <PrimaryButton {...primary} />
-          {secondary.map((social) => (
-            <ContactLink key={social.label} {...social} />
-          ))}
-        </div>
-
-        <div className="mt-16 flex items-center gap-3">
-          <span className="text-xs font-mono text-muted">Follow —</span>
-          <MagnifyGroup className="flex items-center gap-3">
-            {followLinks.map((link) => (
-              <MagnifyItem key={link.label} range={80} maxScale={1.25} liftPx={4}>
-                <IconLink {...link} />
-              </MagnifyItem>
-            ))}
-          </MagnifyGroup>
+        <div className="band stage mx-auto max-w-6xl overflow-hidden rounded-[30px] sm:rounded-[40px] px-6 py-20 sm:py-24 text-center">
+          <p className="eyebrow">Contact</p>
+          <h2 className="display mt-5 text-[clamp(44px,7.4vw,100px)] leading-[.95] tracking-[-0.05em]">
+            Let&apos;s <em>talk</em>.<br />I reply <em>quickly</em>.
+          </h2>
+          <p className="mx-auto mt-6 max-w-[520px] text-[17.5px] text-white/70">
+            Strategy problems, product ideas, MBA questions or a good restaurant in London: pick whichever is easiest.
+          </p>
+          <div className="mt-8 flex flex-wrap justify-center gap-3">
+            <a className="pill light lg" href={primary.href} target="_blank" rel="noopener noreferrer">
+              <Calendar className="h-4 w-4" /> {primary.label}
+            </a>
+            <a className="pill line lg" href={support.href} target="_blank" rel="noopener noreferrer">
+              <Coffee className="h-4 w-4" /> {support.label}
+            </a>
+          </div>
+          <ul className="mt-8 flex flex-wrap justify-center gap-x-6 gap-y-2 text-[15px]">
+            {secondary.map((s) => {
+              const Icon = icons[s.icon];
+              return (
+                <li key={s.label}>
+                  <a href={s.href} className="inline-flex min-h-11 items-center gap-2 text-white/75 underline-offset-4 hover:text-white hover:underline">
+                    <Icon className="h-4 w-4" /> {s.label}
+                  </a>
+                </li>
+              );
+            })}
+          </ul>
+          <div className="mt-8 flex items-center justify-center gap-3">
+            {followLinks.map((link) => <IconLink key={link.label} {...link} />)}
+          </div>
         </div>
       </Reveal>
-      <footer className="mt-20 text-xs text-muted">
+      <footer className="mx-auto mt-8 max-w-6xl px-3 text-[13px] text-muted">
         © {new Date().getFullYear()} {profile.name}. Built with Next.js.
       </footer>
     </section>
