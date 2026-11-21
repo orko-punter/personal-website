@@ -27,7 +27,7 @@ export function Nav() {
                 <Link
                   href={link.href}
                   aria-current={isActive ? "page" : undefined}
-                  className={`block whitespace-nowrap rounded-full px-3 sm:px-3.5 py-2.5 font-display text-[14.5px] font-medium transition-colors ${
+                  className={`block whitespace-nowrap rounded-full px-2 min-[380px]:px-3 sm:px-3.5 py-2.5 font-display text-[13.5px] min-[380px]:text-[14.5px] font-medium transition-colors ${
                     isActive
                       ? onDark ? "bg-[#f6f5f1] text-[#0b0b0a]" : "bg-foreground text-background"
                       : "opacity-70 hover:opacity-100 hover:bg-current/10"
